@@ -1,0 +1,137 @@
+// Customizer
+.customizer-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px 0 0 10px;
+    background-color: #5f63f2;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 10px 15px rgba(#5f63f2, 0.2);
+    &.show {
+      right: 200px;
+    }
+    svg,
+    img {
+      width: 20px;
+      color: #fff;
+      animation: rotate 3s infinite linear;
+    }
+  }
+  .customizer-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    transform: translateX(350px);
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #fff;
+    box-shadow: 0 0 30px #9299b810;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    @include ssm {
+      width: 280px;
+      transform: translateX(280px);
+    }
+    &.show {
+      transform: translateX(0);
+    }
+  }
+  
+  .customizer {
+    height: 100%;
+    @include e("head") {
+      position: relative;
+      padding: 18px 24px;
+      border-bottom: 1px solid #f0f0f0;
+      text-align: left;
+      .customizer-close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        svg,
+        i {
+          color: #ff4d4f;
+        }
+      }
+      .customizer__sub-title {
+        font-size: 14px;
+      }
+    }
+    @include e("title") {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 2px;
+      @extend .color-dark;
+    }
+    @include e("body") {
+      padding: 25px;
+    }
+    @include e("single") {
+      &:not(:last-child) {
+        margin-bottom: 35px;
+      }
+      h4 {
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #272b41;
+      }
+    }
+  }
+  .customizer-list {
+    margin: -10px;
+    @include e("item") {
+      position: relative;
+      display: inline-block;
+      min-height: 60px;
+      background-size: cover;
+      margin: 10px;
+      a.active {
+        i,
+        svg {
+          display: block;
+        }
+      }
+      &.top {
+        i,
+        svg {
+          top: 35px;
+        }
+      }
+      &:hover {
+        span {
+          color: #5f63f2;
+        }
+      }
+      a {
+        position: relative;
+        display: block;
+        i,
+        svg {
+          display: none;
+          font-size: 16px;
+          margin-top: 0;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          @extend .color-success;
+        }
+      }
+      img {
+        width: 100%;
+      }
+      span {
+        display: inline-block;
+        margin-top: 15px;
+        color: #272b41;
+      }
+    }
+  }

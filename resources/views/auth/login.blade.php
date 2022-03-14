@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="author" content="Bintang Tobing">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ASCEND HR Helper</title>
+    <title>ASCEND HR Helper - Login</title>
     <link rel="shortcut icon" href="{!!asset('icon.png')!!}" type="image/png" sizes="64x64">
 
     <link rel="stylesheet" type="text/css" href="{!!asset('auth/vendor/bootstrap/css/bootstrap.min.css')!!}">
@@ -28,20 +28,19 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
+                @if(session('gagal'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{session('gagal')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
                 <form class="login100-form validate-form flex-sb flex-w" method="POST" action="/login/{{csrf_token()}}">
                     @csrf
                     <span class="login100-form-title p-b-51">
                         Welcome
                     </span>
-                    @if(session('gagal'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{session('gagal')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @endif
-
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
                         <input class="input100" type="text" name="email" placeholder="Email">
                         <span class="focus-input100"></span>
